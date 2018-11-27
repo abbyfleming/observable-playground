@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { mergeMap } from 'rxjs/operators';
+
 import { PlaygroundService } from '../playground.service';
 
 @Component({
@@ -7,36 +9,33 @@ import { PlaygroundService } from '../playground.service';
   styleUrls: ['./merge-map.component.css']
 })
 export class MergeMapComponent implements OnInit {
-
-  constructor(
-    private service: PlaygroundService
-  ) { }
+  constructor(private service: PlaygroundService) {}
 
   ngOnInit() {
     console.log('calling getAllPosts');
-    this.getAllPosts();
-    this.getError();
+    this.loadData();
   }
 
-  getAllPosts() {
-    this.service.getAllPosts().subscribe(
-      data => {
-        console.log(data);
-      },
-      error => {},
-      () => {},
+  private loadData() {
+    const post$ = this.service.getPost(1);
+
+    const relatedPosts$ = post$.pipe(
+      mergeMap(post => {
+        const authorId = post.userId;
+        console.log('authorId', authorId);
+
+        return this.service.getError(500);
+      })
     );
-  }
 
-  getError() {
-    this.service.getError().subscribe(
+    relatedPosts$.subscribe(
       data => {
         console.log('data', data);
       },
       error => {
-        console.log('you have an error');
-        console.log(error);
-      }
+        console.log('error', error);
+      },
+      () => {}
     );
   }
 
