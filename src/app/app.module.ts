@@ -6,12 +6,14 @@ import { MergeMapComponent } from './merge-map/merge-map.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ForkJoinComponent } from './fork-join/fork-join.component';
+import { BulmaComponent } from './bulma/bulma.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MergeMapComponent,
-    ForkJoinComponent
+    ForkJoinComponent,
+    BulmaComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ import { PlaygroundService } from '../playground.service';
 @Component({
   selector: 'app-merge-map',
   templateUrl: './merge-map.component.html',
-  styleUrls: ['./merge-map.component.css']
+  styleUrls: ['./merge-map.component.scss']
 })
 export class MergeMapComponent implements OnInit {
   constructor(private service: PlaygroundService) {}
