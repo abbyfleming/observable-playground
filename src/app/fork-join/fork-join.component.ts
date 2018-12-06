@@ -6,7 +6,7 @@ import { forkJoin, of, interval } from 'rxjs';
 @Component({
   selector: 'app-fork-join',
   templateUrl: './fork-join.component.html',
-  styleUrls: ['./fork-join.component.css']
+  styleUrls: ['./fork-join.component.scss']
 })
 export class ForkJoinComponent implements OnInit {
 
