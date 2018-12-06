@@ -1,0 +1,15 @@
+
+@import "./variables.scss";
+/* CUSTOMIZE BULMA */
+
+$body-background-color: #fff;
+
+$primary: $blue;
+$link: $indigo;
+$info: $purple;
+$success: $pink;
+$warning: $red;
+$danger: $orange;
+
+// Import Bulma - All variables set must be above this //
+@import "../../node_modules/bulma/bulma.sass";
